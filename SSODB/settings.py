@@ -86,11 +86,11 @@ WSGI_APPLICATION = 'SSODB.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sso_data',
-        'USER': 'root',
-        'PASSWORD': 'shubh123',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'NAME': '*****',
+        'USER': '*****',
+        'PASSWORD': '*****',
+        'HOST': '******',
+        'PORT': '*****',
     }
 }
 
