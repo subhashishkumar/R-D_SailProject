@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+<!-- Page Title -->
+{% block title %} View Records {% endblock %}
+
+<!-- Page Style -->
+{% block style %}
+<style>
+	.table{
+        table-layout: auto;
+		width: 50%;
+		margin-left: auto;
+		margin-right: auto; 
+    }
+        
+    thead {
+        color: #fff;
+        background-color: #373a3c;
+    }
+    
+    th {
+        text-align: center;
+        min-width:50px;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    
+	th:nth-child(2) {
+		text-align: left;
+	}
+
+    td {
+		text-align: center;
+        min-width:50px;
+        font-weight: bold;
+        font-size: 15px;
+    }
+    
+	td:nth-child(2) {
+		text-align: left;
+	}
+
+	h2 {
+		text-align: center;
+		font-weight: bold;
+		color: black;
+	}
+
+	hr { 
+		display: block;
+		margin-top: 5px;
+		margin-bottom: 15px;
+		margin-left: auto;
+		margin-right: auto;
+		border-style: inset;
+		border-width: 1px;  
+	} 
+</style>
+{% endblock %}
+
+<!-- Page Body -->
+{% block pagecontent %}
+<hr/>
+<h2>All Records</h2>	
+<hr/>
+
+<div class = "table-responsive">
+    <table class = "table table-striped table-hover">
+        <thead> 
+			<tr>
+				<th>Row</th>
+				<th>Tables</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>
+					<a href="{% url 'FatalDataView' accdType="fatal" %}">
+						<b>Fatal Records</b>
+					</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>2</td>
+				<td>
+					<a href="{% url 'FirstAidDataView' accdType="first-aid" %}">
+						<b>First-Aid Records</b>
+					</a>
+				</td>
+			</tr>
+
+			<tr>
+				<td>3</td>
+				<td>
+					<a href="{% url 'ReportableDataView' accdType="reportable" %}">
+						<b>Reportable Records</b>
+					</a>
+				</td>
+			</tr>
+
+			<tr>
+				<td>4</td>
+				<td>
+					<a href="{% url 'NonReportableDataView' accdType="non-reportable" %}">
+						<b>Non-Reportable Records</b>
+					</a>
+				</td>
+			</tr>
+
+			<tr>
+				<td>5</td>
+				<td>
+					<a href="{% url 'AccdTableDetailView' %}">
+						<b>All Units Accident Records</b>
+					</a>
+				</td>
+			</tr>
+
+			<tr>
+				<td>6</td>
+				<td>
+					<a href="{% url 'ManhoursTableView' %}">
+						<b>All Units Manhours Records</b>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+{% endblock %}

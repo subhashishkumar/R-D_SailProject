@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+<!-- Page Title -->
+{% block title %} Summary {% endblock %}
+
+<!-- Page Style -->
+{% block style %}
+<style>
+    .table{
+        table-layout: auto;
+    }
+    
+    .table-bordered th, .table-bordered td {
+        border: 1px solid #ddd!important
+    }
+    
+    thead {
+        color: #fff;
+        background-color: #373a3c;
+    }
+    
+    th {
+        text-align: center;
+        min-width:50px;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    
+    td {
+        text-align: center;
+        min-width:50px;
+        font-weight: bold;
+        font-size: 15px;
+    }
+    
+    tr:last-child td{
+        background-color: rgb(168, 224, 233);
+    }
+    
+    h3 {
+        text-align: center;
+        font-family: Nevis;
+        font-weight: bold;
+        font-size: 35px;
+        color: black;
+    }
+    
+    h4 {
+        text-align: center;
+        font-weight: bold;
+        color: black;
+    }
+    
+    hr { 
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: inset;
+        border-width: 1px;
+    } 
+</style>
+{% endblock %}
+
+<!-- Page Body -->
+{% block pagecontent %}
+
+<hr/>
+	<h3> SUMMARY </h3>
+<hr/>    
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel-body">
+            <form method="GET" class="form-inline" style="margin-top: 10px;">
+                {% csrf_token %}
+                <div class="form-group mx-sm-3">
+                    <label>Date Range: </label>
+                </div>
+                <div class="form-group mx-sm-3">
+                    <input type="text" class="form-control" id="start_date" name="start_date"/>
+                </div>
+                <div class="form-group mx-sm-3">
+                    <input type="text" class="form-control" id="end_date" name="end_date"/>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-search" style="font-size:15px; margin-right: 8px;"></i>
+                        Search Records
+                </button>
+            </form>
+        </div>
+    </div>
+</div>	      
+
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <hr/>
+            <h4> {{ records }} </h4>
+        <hr/>    
+    </div>
+</div>
+
+<div class = "table-responsive">
+    <table class = "table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Records</th>
+                <th>Regular</th>
+                <th>Contract</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Fatal Accidents</td>
+                <td>{{ fatal_reg }}</td>
+                <td>{{ fatal_contr }}</td>
+            </tr>
+            <tr>
+                <td>First-Aid Accidents</td>
+                <td>{{ first_aid_reg }}</td>
+                <td>{{ first_aid_contr }}</td>
+            </tr>
+            <tr>
+                <td>Reportable Accidents</td>
+                <td>{{ reportable_reg }}</td>
+                <td>{{ reportable_contr }}</td>
+            </tr>
+            <tr>
+                <td>Non-Reportable Accidents</td>
+                <td>{{ non_reportable_reg }}</td>
+                <td>{{ non_reportable_contr }}</td>
+            </tr>
+            <tr>
+                <td>TOTAL</td>
+                <td>{{ total_reg }}</td>
+                <td>{{ total_contr }}</td>
+            </tr>
+        <tbody>
+    </table>
+</div>
+
+{% endblock %}

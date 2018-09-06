@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %} firstpage_stats {% endblock %}
+
+{% block style %}
+<style> 
+.ui-datepicker,
+    .ui-datepicker table,
+    .ui-datepicker tr,
+    .ui-datepicker td,
+    .ui-datepicker th {
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-spacing: 0;
+    }
+
+    .ui-datepicker {
+        display: none;
+        padding: 0;
+        cursor: default;
+        background: #fff;
+        border-radius: 4px;
+        border: 1px solid #66AFE9;
+    }
+
+    .table-responsive{
+        table-layout: auto;
+    }
+    
+    .table-bordered th, .table-bordered td {
+        border: 1px solid #ddd!important
+    }
+    
+    thead {
+        color: #fff;
+        background-color: #373a3c;
+    }
+    
+    th {
+        text-align: center;
+        font-weight: bold;
+        font-size: 20px;
+        width: 100px;
+    }
+    
+    td {
+        text-align: center;
+        font-weight: bold;
+        font-size: 15px;
+        width: 100px;
+    }
+    
+    tr:last-child td{
+        background-color: rgb(168, 224, 233);
+    }
+
+    h3 {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    
+    h4 {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    
+    hr { 
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: inset;
+        border-width: 1px;
+    }
+
+    #start_date {
+        margin-left: 5px;
+		margin-right: 5px;
+	}
+	
+	#end_date {
+		margin-left: 5px;
+        margin-right: 5px;
+	}
+
+</style>
+{% endblock %}
+
+{% block pagecontent %}
+
+<!doctype html>
+<head>
+<title> stats </title>
+</head>
+ 
+<body>
+	<div class="row">
+	<div class="col-xs-12">
+	    <div class="panel-body">
+            <form method="GET" class="form-inline" style="margin-top: 10px;">
+                {% csrf_token %}
+                <div class="form-group mx-sm-3">
+                    <label>Date Range: </label>
+                </div>
+                <div class="form-group mx-sm-3">
+                    <input type="text" class="form-control" id="start_date" name="start_date"/>
+                </div>
+                <div class="form-group mx-sm-3">
+                    <input type="text" class="form-control" id="end_date" name="end_date"/>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+				<i class="fa fa-search" style="font-size:15px; margin-right: 8px;"></i>
+				<b>FatalBar</b>
+				<a href="{% url 'FatalDataView'%}"></a>
+				</button>
+
+				<button type="submit" class="btn btn-primary">
+				<i class="fa fa-search" style="font-size:15px; margin-right: 8px;"></i>
+				<b> FatalPie</b>
+				<a href="{% url 'FatalPieDataView'%}"></a>
+				</button>
+				<button type="submit" class="btn btn-primary">
+				<i class="fa fa-search" style="font-size:15px; margin-right: 8px;"></i>
+				<b>Causes</b>
+				<a href="{% url 'CauseDataView'%}"></a>
+				</button>
+				<button type="submit" class="btn btn-primary">
+				<i class="fa fa-search" style="font-size:15px; margin-right: 8px;"></i>
+				<b>Manhours</b>
+				<a href="{% url 'ManhoursDataView'%}"></a>
+				</button>   
+            </form>
+	    </div>
+    </div>
+</div>	
+
+</body>
+</html>
+
+{% endblock %}

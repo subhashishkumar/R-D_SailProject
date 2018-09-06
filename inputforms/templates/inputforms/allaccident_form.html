@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+<!-- Page Title -->
+{% block title %}Accident Form {% endblock %}
+
+<!-- Page Style -->
+{% block style %} 
+<style>
+	h2 {
+		text-align: center;
+		text-decoration: underline;
+		font-weight: bold;
+		margin-bottom: 18px;
+	}
+
+	.btn-success:hover, .btn-success:focus {
+		color: #ffffff;
+	}
+
+	.container{
+		max-width: 650px;
+		margin: auto;
+	}
+</style>
+{% endblock %}
+
+<!-- Page Body -->
+{% block pagecontent %}
+{% if messages %}
+<ul class="messages">
+   {% for message in messages %}
+	  <div class="alert alert-success {{ message.tags }} alert-dismissible fade in" role="alert">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>{{ message }}</strong>
+	  </div>
+	{% endfor %}
+</ul>
+{% endif %}
+
+<h2>Accident Details Form</h2>
+<div class="container">	
+	{% csrf_token %} {% crispy form %}
+</div>
+{% endblock %}

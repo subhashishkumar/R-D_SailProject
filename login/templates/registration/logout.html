@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+<!-- Page Title -->
+{% block title %}Logout {% endblock %}
+
+<!-- Page Style -->
+{% block style %}
+<style>
+    h1 {
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
+
+<!-- Page Body -->
+{% block pagecontent %}
+<div class="row">
+    <div class="col-xs-12">
+        <h1>You have been logged out. You may
+            <a href="{% url 'admin:index' %}">log back in</a>.
+        </h1>
+    </div>
+</div>
+{% endblock %}

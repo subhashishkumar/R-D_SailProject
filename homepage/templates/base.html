@@ -1,0 +1,53 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <!-- Fav Icon -->
+        <link rel="icon" href="{% static "images/sail.ico" %}">
+
+        <!-- Title per page -->
+        <title>{% block title %}{% endblock %} | SSO</title>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <!-- FontAwesome CSS -->
+        <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}"/>
+        <!-- JQuery UI Datepicker CSS -->
+        <link rel="stylesheet" href="{% static 'jquery-ui/css/jquery-ui.css' %}"/>
+        <!-- django-tables2 CSS -->
+        <link rel="stylesheet" href="{% static 'django_tables2/themes/paleblue/css/screen.css' %}"/>
+
+        <!-- Navbar -->
+        {% include 'navbar.html' %}
+
+        <!-- CSS per page -->
+        {% block style %} {% endblock %}
+    </head>
+
+    <body>
+        <div class="container">
+            {% block pagecontent %} {% endblock %}
+        </div>
+
+        <!-- Bootstrap core JavaScript ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+
+        <!-- JQuery JS -->
+        <script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
+
+        <!-- JQuery UI JS -->
+        <script src="{% static "jquery-ui/js/jquery-ui.js" %}"></script>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+        
+        <!-- Scripts per page -->
+        {% block scripts %} {% endblock %}
+    </body>
+</html>
